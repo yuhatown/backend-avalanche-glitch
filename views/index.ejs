@@ -1,0 +1,182 @@
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+<!-- Content Row -->
+    <div class="row">
+        <!-- Illustrations -->
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">0xa23...1f3</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/DEFI.png" alt="...">
+                    </div>
+                    <p>sector: DEFI</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">03d09g...dhj</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/DEV.png" alt="...">
+                    </div>
+                    <p>sector: DEV</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>  
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">0xasf...2v8</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/DAO.png" alt="...">
+                    </div>
+                    <p>sector: DAO</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>  
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">0xvkD...234</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/NFT.png" alt="...">
+                    </div>
+                    <p>sector: NFT</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>  
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">01gfD...1m3</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/DEV.png" alt="...">
+                    </div>
+                    <p>sector: DEV</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>  
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">0fahD...1fd</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/DEV.png" alt="...">
+                    </div>
+                    <p>sector: DEV</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>  
+        <div class="col-lg-3 mb-4">                         
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-danger">0njfD...5q1</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                            src="img/NFT.png" alt="...">
+                    </div>
+                    <p>sector: NFT</p>
+                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                </div>
+            </div>
+        </div>                   
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+
+
+
+    <script>
+        let isConnected = false;  // global variable to keep track of connection status
+    
+        async function connectWallet() {
+            if (!isConnected) {  // if not already connected
+                if (window.ethereum) {
+                    window.web3 = new Web3(window.ethereum);
+                    try {
+                        await window.ethereum.enable();
+                        const accounts = await web3.eth.getAccounts();
+                        const message = "Yo! This is your account, no cap. Get ready to ride the wave at the hackathon with CoffeeChat, your sidekick for a lit experience. Let's get this party started!";
+                        const signature = await web3.eth.personal.sign(message, accounts[0]);
+                        console.log(`Signature: ${signature}`);
+    
+                        // Change "Connect Wallet" button to show connected address
+                        document.getElementById("userDropdown").innerHTML = `<span class="mr-2 d-none d-lg-inline text-gray-600 small">${accounts[0]}</span>`;
+    
+                        // Create a new "nicknameBox" when connectWallet() completes successfully
+                        var nicknameBox = document.createElement("div");
+                        nicknameBox.className = "col-lg-3 mb-4";
+                        let address = accounts[0];
+                        let shortenedAddress = address.substring(0, 5) + "..." + address.substring(address.length - 3);
+
+                        nicknameBox.innerHTML = `
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-danger">${shortenedAddress}</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="img/DEV.png" alt="...">
+                                    </div>
+                                    <p>sector: DEV</p>
+                                    <a class="collapse-item" href="profile/2">자세히보기 &rarr;</a> 
+                                </div>
+                            </div>`;
+                        document.querySelector(".row").appendChild(nicknameBox);
+    
+                        isConnected = true;  // update connection status
+                    } catch (error) {
+                        console.error("User denied account access");
+                    }
+                } else if (window.web3) {
+                    window.web3 = new Web3(window.web3.currentProvider);
+                } else {
+                    console.log('Non-Ethereum browser detected. Consider trying MetaMask!');
+                }
+            } else {  // if already connected
+                // Reset "Connect Wallet" button
+                document.getElementById("userDropdown").innerHTML = `<span class="mr-2 d-none d-lg-inline text-gray-600 small">Connect Wallet</span>`;
+                
+                // TODO: Disconnect from Metamask
+                // The code for disconnecting from Metamask is not directly available in the Web3.js library as of my knowledge cut-off in September 2021.
+                // To properly disconnect, you should encourage the user to manually disconnect from your site in their Metamask settings.
+                // If there is a new feature to disconnect programmatically, please refer to the latest Web3.js or Metamask documentation.
+    
+                isConnected = false;  // update connection status
+            }
+        }
+    </script>
+    
+    
+    
